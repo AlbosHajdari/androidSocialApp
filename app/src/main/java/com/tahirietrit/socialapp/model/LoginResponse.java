@@ -18,5 +18,4 @@ public class LoginResponse {
     public void setUser(List<User> user) {
         this.user = user;
     }
-
 }

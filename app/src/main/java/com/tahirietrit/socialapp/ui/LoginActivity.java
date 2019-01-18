@@ -13,8 +13,11 @@ import com.tahirietrit.socialapp.R;
 import com.tahirietrit.socialapp.api.ApiService;
 import com.tahirietrit.socialapp.api.Servicefactory;
 import com.tahirietrit.socialapp.databinding.LoginActivityBinding;
+import com.tahirietrit.socialapp.model.FeedResponse;
 import com.tahirietrit.socialapp.model.LoginResponse;
+import com.tahirietrit.socialapp.model.Postet;
 import com.tahirietrit.socialapp.model.User;
+import com.tahirietrit.socialapp.prefs.AppPreferences;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -29,14 +32,30 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppPreferences.init(getApplication());
         binding = DataBindingUtil.setContentView(this, R.layout.login_activity);
         binding.loginButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 loginUser();
             }
         });
+/*          if(AppPreferences.getUserID()!=null){
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(i);
+            finish();
+        }*/
+
+        binding.shikoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getPostet();
+            }
+        });
     }
+
 
     private void loginUser() {
         ApiService apiService = Servicefactory.retrofit.create(ApiService.class);
@@ -48,10 +67,14 @@ public class LoginActivity extends AppCompatActivity {
                 User user = response.body().getUser().get(0);
 
                 if (user != null && user.getStatus().equalsIgnoreCase("success")) {
+                    AppPreferences.saveUserName(user.getUsername());
+                    AppPreferences.saveUserName(user.getUserID());
+
                     Intent i = new Intent(getApplicationContext(), MainActivity.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);
                     finish();
+
                 }else{
                     Toast.makeText(getApplicationContext(), "Wrong combination",
                             Toast.LENGTH_SHORT).show();
@@ -66,12 +89,45 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    private void getPostet(){
+        ApiService apiService = Servicefactory.retrofit.create(ApiService.class);
+        Call<FeedResponse> call = apiService.getPostet("158",
+                "0");
+        call.enqueue(new Callback<FeedResponse>() {
+            @Override
+            public void onResponse(Call<FeedResponse> call, Response<FeedResponse> response) {
+                Postet postimi = response.body().getPostet().get(0);
+                if(postimi!=null) {
+                    Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                    i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(i);
+                    finish();
+                    System.out.println("SUKSES123");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<FeedResponse> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "SOMETHING WENT WRONG",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
     private String getUserName() {
         return binding.emailEdittext.getText().toString();
     }
 
     private String getPassword() {
         return binding.passwordEdittext.getText().toString();
+    }
+
+    private String getPostCount1(){
+        return "100";
+    }
+
+    private String getUserID1(){
+        return "546";
     }
 
     public static final String md5(final String s) {
