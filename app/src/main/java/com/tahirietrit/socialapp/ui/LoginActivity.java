@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
         binding.shikoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getPostet();
+                shikoPostimet();
             }
         });
     }
@@ -89,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void getPostet(){
+    private void shikoPostimet(){
         ApiService apiService = Servicefactory.retrofit.create(ApiService.class);
         Call<FeedResponse> call = apiService.getPostet("158",
                 "0");
