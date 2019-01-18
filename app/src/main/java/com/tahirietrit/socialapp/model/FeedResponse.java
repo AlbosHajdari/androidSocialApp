@@ -7,15 +7,15 @@ import java.util.List;
 
 public class FeedResponse {
 
-    @SerializedName("User")
+    @SerializedName("postet")
     @Expose
-    private List<Postet> postet = null;
+    public List<Posts> postet = null;
 
-    public List<Postet> getPostet() {
+    public List<Posts> getPostet() {
         return postet;
     }
 
-    public void setPostet(List<Postet> postet) {
+    public void setPostet(List<Posts> user) {
         this.postet = postet;
     }
 }

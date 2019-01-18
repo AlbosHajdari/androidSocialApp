@@ -15,7 +15,7 @@ import com.tahirietrit.socialapp.api.Servicefactory;
 import com.tahirietrit.socialapp.databinding.LoginActivityBinding;
 import com.tahirietrit.socialapp.model.FeedResponse;
 import com.tahirietrit.socialapp.model.LoginResponse;
-import com.tahirietrit.socialapp.model.Postet;
+import com.tahirietrit.socialapp.model.Posts;
 import com.tahirietrit.socialapp.model.User;
 import com.tahirietrit.socialapp.prefs.AppPreferences;
 
@@ -34,8 +34,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         AppPreferences.init(getApplication());
         binding = DataBindingUtil.setContentView(this, R.layout.login_activity);
-        binding.loginButton.setOnClickListener(new View.OnClickListener() {
 
+        binding.loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 loginUser();
@@ -96,8 +96,10 @@ public class LoginActivity extends AppCompatActivity {
         call.enqueue(new Callback<FeedResponse>() {
             @Override
             public void onResponse(Call<FeedResponse> call, Response<FeedResponse> response) {
-                Postet postimi = response.body().getPostet().get(0);
-                if(postimi!=null) {
+                Posts post = response.body().getPostet().get(1);
+
+                System.out.println("POSTIMI = " + post.getUserId());
+                if(post!=null) {
                     Intent i = new Intent(getApplicationContext(), MainActivity.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);

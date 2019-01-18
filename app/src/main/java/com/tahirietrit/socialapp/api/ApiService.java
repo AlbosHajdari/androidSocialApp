@@ -1,13 +1,13 @@
 package com.tahirietrit.socialapp.api;
 
-import android.text.GetChars;
+        import android.text.GetChars; //unused import statement
 
-import com.tahirietrit.socialapp.model.FeedResponse;
-import com.tahirietrit.socialapp.model.LoginResponse;
+        import com.tahirietrit.socialapp.model.FeedResponse;
+        import com.tahirietrit.socialapp.model.LoginResponse;
 
-import retrofit2.Call;
-import retrofit2.http.GET;
-import retrofit2.http.Query;
+        import retrofit2.Call;
+        import retrofit2.http.GET;
+        import retrofit2.http.Query;
 
 public interface ApiService {
     @GET("/paintbook/index.php")

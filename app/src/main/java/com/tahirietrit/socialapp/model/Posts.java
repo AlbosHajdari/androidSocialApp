@@ -3,83 +3,72 @@ package com.tahirietrit.socialapp.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Postet {
+public class Posts {
 
     @SerializedName("id")
     @Expose
-    private String id;
-    @SerializedName("UserID")
+    public String id;
+    @SerializedName("user_id")
     @Expose
-    private String userId;
-    @SerializedName("UserName")
+    public String userId;
+    @SerializedName("username")
     @Expose
-    private String username;
-    @SerializedName("photoURL")
+    public String username;
+    @SerializedName("photo_url")
     @Expose
-    private String photoUrl;
+    public String photoUrl;
     @SerializedName("pershkrimi")
     @Expose
-    private String pershkrimi;
-    @SerializedName("createdDate")
+    public String pershkrimi;
+    @SerializedName("created_date")
     @Expose
-    private String createdDate;
-
+    public String createdDate;
 
     public String getId() {
         return id;
     }
 
-
-    public void setId(String id) {
+    public void setId(String userIdid) {
         this.id = id;
     }
-
 
     public String getUserId() {
         return userId;
     }
 
-
-    public void setUserId(String userId) {
+    public void setUserId(String id) {
         this.userId = userId;
     }
-
 
     public String getUsername() {
         return username;
     }
 
-
-    public void setUsername(String username) {
+    public void setUsername(String id) {
         this.username = username;
     }
-
 
     public String getPhotoUrl() {
         return photoUrl;
     }
 
-
-    public void setPhotoUrl(String photoUrl) {
+    public void setPhotoUrl(String id) {
         this.photoUrl = photoUrl;
     }
-
 
     public String getPershkrimi() {
         return pershkrimi;
     }
 
-
-    public void setPershkrimi(String pershkrimi) {
+    public void setPershkrimi(String id) {
         this.pershkrimi = pershkrimi;
     }
-
 
     public String getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(String createdDate) {
+    public void setCreatedDate(String id) {
         this.createdDate = createdDate;
     }
 }
