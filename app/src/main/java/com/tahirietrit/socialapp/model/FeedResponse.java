@@ -15,7 +15,7 @@ public class FeedResponse {
         return postet;
     }
 
-    public void setPostet(List<Posts> user) {
+    public void setPostet(List<Posts> postet) {
         this.postet = postet;
     }
 }
