@@ -43,9 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("POSTIMI MAIN = " + posts.get(1).getUserId());
 
                 if(posts!=null) {
-                    //adapter = new com.tahirietrit.socialapp.model.ListAdapter(MainActivity.this,getLayoutInflater());
                     adapter = new ListAdapter(MainActivity.this,getLayoutInflater());
-                    //(() adapter).setPosts(posts);
                     adapter.setPosts(posts);
                     listView.setAdapter(adapter);
                 }

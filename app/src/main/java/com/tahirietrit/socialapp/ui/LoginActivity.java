@@ -33,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         AppPreferences.init(getApplication());
         binding = DataBindingUtil.setContentView(this, R.layout.login_activity);
 
+
         binding.loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,6 +47,7 @@ public class LoginActivity extends AppCompatActivity {
             finish();
         }*/
     }
+
 
 
 
@@ -82,7 +84,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-
     private String getUserName() {
         return binding.emailEdittext.getText().toString();
     }
@@ -117,3 +118,4 @@ public class LoginActivity extends AppCompatActivity {
         return "";
     }
 }
+
