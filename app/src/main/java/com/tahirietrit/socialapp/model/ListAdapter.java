@@ -29,6 +29,10 @@ public class ListAdapter extends BaseAdapter {
         this.posts = posts;
     }
 
+    public void setIntent(Intent intent) {
+        this.intent = intent;
+    }
+
     public ListAdapter(Context ctx, LayoutInflater inflater) {
         this.ctx = ctx;
         this.infalter = inflater;
