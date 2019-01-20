@@ -64,7 +64,7 @@ public class ListAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        //holder.profiliImageView.setText("Emri: "+ contacts.get(position).name);
+
         holder.username.setText(posts.get(position).getUsername());
         holder.agoTime.setText(posts.get(position).getCreatedDate());
 
@@ -73,7 +73,6 @@ public class ListAdapter extends BaseAdapter {
             public void onClick(View v) {
                 intent.putExtra(USERNAME_MESSAGE, posts.get(position).getUsername());
                 intent.putExtra(AGOTIME_MESSAGE, posts.get(position).getCreatedDate());
-                //intent.putExtra(IMAGEINTR_MESSAGE,posts.get(position).imageIntR);
 
                 ctx.startActivity(intent);
             }
@@ -88,10 +87,8 @@ public class ListAdapter extends BaseAdapter {
         TextView username;
         TextView agoTime;
         LinearLayout listItemLinearLayout;
-        ImageButton callButton;
 
         public ViewHolder(View view) {
-            //firstName= view.findViewById(R.id.details_layout).findViewById(R.id.firstName_textView);
             username = view.findViewById(R.id.username_TextView);
             agoTime = view.findViewById(R.id.ago_TextView);
             profiliImageView = view.findViewById(R.id.profili_ImageView);

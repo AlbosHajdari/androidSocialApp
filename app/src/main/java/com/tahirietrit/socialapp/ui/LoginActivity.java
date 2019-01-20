@@ -3,7 +3,6 @@ package com.tahirietrit.socialapp.ui;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.os.Parcel;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -14,24 +13,18 @@ import com.tahirietrit.socialapp.R;
 import com.tahirietrit.socialapp.api.ApiService;
 import com.tahirietrit.socialapp.api.Servicefactory;
 import com.tahirietrit.socialapp.databinding.LoginActivityBinding;
-import com.tahirietrit.socialapp.model.FeedResponse;
 import com.tahirietrit.socialapp.model.LoginResponse;
-import com.tahirietrit.socialapp.model.Posts;
 import com.tahirietrit.socialapp.model.User;
 import com.tahirietrit.socialapp.prefs.AppPreferences;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
-
-    public static final String LIST_POSTS_SERIALIZABLE = "listOfPostsSerializable";
     LoginActivityBinding binding;
 
     @Override
@@ -44,13 +37,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 loginUser();
-            }
-        });
-
-        binding.shikoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //shikoPostimet();
             }
         });
 /*          if(AppPreferences.getUserID()!=null){
