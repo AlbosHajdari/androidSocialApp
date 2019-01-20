@@ -1,14 +1,14 @@
 package com.tahirietrit.socialapp;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ListAdapter;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.tahirietrit.socialapp.api.ApiService;
 import com.tahirietrit.socialapp.api.Servicefactory;
 import com.tahirietrit.socialapp.model.FeedResponse;
+import com.tahirietrit.socialapp.model.ListAdapter;
 import com.tahirietrit.socialapp.model.Posts;
 
 import java.util.ArrayList;
@@ -43,8 +43,10 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("POSTIMI MAIN = " + posts.get(1).getUserId());
 
                 if(posts!=null) {
-                    adapter = new com.tahirietrit.socialapp.model.ListAdapter(MainActivity.this,getLayoutInflater());
-                    ((com.tahirietrit.socialapp.model.ListAdapter) adapter).setPosts(posts);
+                    //adapter = new com.tahirietrit.socialapp.model.ListAdapter(MainActivity.this,getLayoutInflater());
+                    adapter = new ListAdapter(MainActivity.this,getLayoutInflater());
+                    //(() adapter).setPosts(posts);
+                    adapter.setPosts(posts);
                     listView.setAdapter(adapter);
                 }
             }
