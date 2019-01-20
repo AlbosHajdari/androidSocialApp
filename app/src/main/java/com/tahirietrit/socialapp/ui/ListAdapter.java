@@ -1,4 +1,4 @@
-package com.tahirietrit.socialapp.model;
+package com.tahirietrit.socialapp.ui;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.tahirietrit.socialapp.R;
+import com.tahirietrit.socialapp.model.Posts;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -103,6 +104,7 @@ public class ListAdapter extends BaseAdapter {
 
         return convertView;
     }
+
     private void loadImageFromUrl(String url, ViewHolder holder) {
         Picasso.with(ctx).load(url).placeholder(R.mipmap.ic_launcher)
                 .error(R.mipmap.ic_launcher)
@@ -134,7 +136,6 @@ public class ListAdapter extends BaseAdapter {
 
     }
 
-
     class ViewHolder {
         ImageView profiliImageView;
         TextView username;
@@ -155,17 +156,17 @@ public class ListAdapter extends BaseAdapter {
     private long DiferencaNeSekonda()
     {
         long diferencaNeMilisekonda = dateNow.getTime() - dateThen.getTime();
-        long sekondat = (long) (diferencaNeMilisekonda/1000);
+        long sekondat = diferencaNeMilisekonda/1000;
         return sekondat;
     }
     private long DiferencaNeMinuta()
     {
-        long minutat = (long) (DiferencaNeSekonda()/60);
+        long minutat = DiferencaNeSekonda()/60;
         return minutat;
     }
     private long DiferencaNeOre()
     {
-        long oret = (long) (DiferencaNeMinuta()/60);
+        long oret = DiferencaNeMinuta()/60;
         return oret;
     }
     private int DiferencaNeDite()
@@ -175,17 +176,17 @@ public class ListAdapter extends BaseAdapter {
     }
     private int DiferencaNeJave()
     {
-        int javet = (int) (DiferencaNeDite()/7);
+        int javet = DiferencaNeDite()/7;
         return javet;
     }
     private int DiferencaNeMuaj()
     {
-        int muajt = (int) (DiferencaNeDite()/30);
+        int muajt = DiferencaNeDite()/30;
         return muajt;
     }
     private int DiferencaNeVite()
     {
-        int vitet = (int) (DiferencaNeMuaj()/12);
+        int vitet = DiferencaNeMuaj()/12;
         return vitet;
     }
 

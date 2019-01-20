@@ -8,7 +8,7 @@ import android.widget.Toast;
 import com.tahirietrit.socialapp.api.ApiService;
 import com.tahirietrit.socialapp.api.Servicefactory;
 import com.tahirietrit.socialapp.model.FeedResponse;
-import com.tahirietrit.socialapp.model.ListAdapter;
+import com.tahirietrit.socialapp.ui.ListAdapter;
 import com.tahirietrit.socialapp.model.Posts;
 
 import java.util.ArrayList;

@@ -33,23 +33,19 @@ public class LoginActivity extends AppCompatActivity {
         AppPreferences.init(getApplication());
         binding = DataBindingUtil.setContentView(this, R.layout.login_activity);
 
-
         binding.loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 loginUser();
             }
         });
-/*          if(AppPreferences.getUserID()!=null){
+          if(AppPreferences.getUserID()!=null){
             Intent i = new Intent(getApplicationContext(), MainActivity.class);
             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(i);
             finish();
-        }*/
+        }
     }
-
-
-
 
     private void loginUser() {
         ApiService apiService = Servicefactory.retrofit.create(ApiService.class);
@@ -91,8 +87,7 @@ public class LoginActivity extends AppCompatActivity {
     private String getPassword() {
         return binding.passwordEdittext.getText().toString();
     }
-
-
+    
     public static final String md5(final String s) {
         final String MD5 = "MD5";
         try {
