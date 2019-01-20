@@ -87,7 +87,7 @@ public class LoginActivity extends AppCompatActivity {
     private String getPassword() {
         return binding.passwordEdittext.getText().toString();
     }
-    
+
     public static final String md5(final String s) {
         final String MD5 = "MD5";
         try {
