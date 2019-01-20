@@ -17,7 +17,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="10dp"
             android:foregroundGravity="center"
-            android:background="@drawable/grey_rounded_outlin"/>
+            android:background="@drawable/grey_rounded_outline"/>
 
         <LinearLayout
             android:layout_width="match_parent"
